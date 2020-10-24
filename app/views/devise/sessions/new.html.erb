@@ -1,0 +1,39 @@
+<v-container fluid fill-height>
+  <v-layout align-center >
+    <v-flex >
+      <v-card
+        class="mx-auto"
+        max-width="344"
+        outlined
+      >
+        <v-list-item>
+              <v-list-item-title class="headline my-3">
+                Log in to <%= link_to 'Microblog', root_path %>
+              </v-list-item-title>
+        </v-list-item>
+        <% flash.each do |type, msg| %>
+          <div class="red--text px-3">
+            <%= msg %>
+          </div>
+        <% end %>
+
+        <v-container>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { ref: :form }) do |f| %>
+            <v-text-field label="E-mail" name="user[email]" value="<%= resource.email %>"></v-text-field>
+
+            <v-text-field type="password" label="Password" name="user[password]" autocomplete="current-password">
+            </v-text-field>
+
+            <% if devise_mapping.rememberable? %>
+              <v-checkbox label="Remember me" v-model="remember_me" value="remember_me"></v-checkbox>
+            <% end %>
+
+            <button type="submit" class="v-btn v-btn--block v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">Log in</span></button>
+          <% end %>
+        </v-container>
+
+        <%= render "devise/shared/links" %>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
