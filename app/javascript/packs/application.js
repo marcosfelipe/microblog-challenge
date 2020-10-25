@@ -21,10 +21,12 @@ import TurboLinksAdapter from 'vue-turbolinks'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
+import Home from '../src/home.vue'
 
 Vue.use(Vuetify)
 Vue.use(TurboLinksAdapter)
 Vue.component('app', App)
+Vue.component('home', Home)
 
 // document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('turbolinks:load', () => {
