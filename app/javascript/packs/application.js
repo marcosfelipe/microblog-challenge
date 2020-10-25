@@ -17,16 +17,17 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import Vue from 'vue'
-import TurboLinksAdapter from 'vue-turbolinks'
+// import TurboLinksAdapter from 'vue-turbolinks'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 
 Vue.use(Vuetify)
+// Vue.use(TurboLinksAdapter)
 Vue.component('app', App)
 
-// document.addEventListener('DOMContentLoaded', () => {
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '[data-behavior="vue"]',
     vuetify: new Vuetify(),
