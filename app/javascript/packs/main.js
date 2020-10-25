@@ -5,7 +5,7 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue/dist/vue.esm.js'
+import Vue from 'vue'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
@@ -15,7 +15,6 @@ Vue.component('app', App)
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
-    el: '[data-behavior="vue"]',
     vuetify: new Vuetify(),
     data: { remember_me: [] },
     methods : {
@@ -23,5 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
         this.$refs.form.requestSubmit()
       }
     }
-  })
+  }).$mount(document.body.querySelector('[data-behavior="vue"]'));
 })
