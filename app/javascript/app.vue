@@ -58,7 +58,7 @@
         drawer: true,
         items: [
           { title: 'Home', icon: 'mdi-home-city', url: '/' },
-          //{ title: 'My Account', icon: 'mdi-account' },
+          { title: 'My Account', icon: 'mdi-account', url: '/posts' },
           //{ title: 'Users', icon: 'mdi-account-group-outline' },
         ],
         mini: true,

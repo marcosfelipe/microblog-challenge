@@ -22,6 +22,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import Home from '../src/home.vue'
+import Posts from '../src/posts.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 
@@ -32,11 +33,13 @@ Vue.use(Vuetify)
 Vue.use(TurboLinksAdapter)
 Vue.component('app', App)
 Vue.component('home', Home)
+Vue.component('posts', Posts)
 
 // routes
 const router = new VueRouter({
   routes: [
-    { path: '/', component: Home }
+    { path: '/', component: Home },
+    { path: '/posts', component: Posts }
   ]
 })
 
