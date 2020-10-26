@@ -6,7 +6,12 @@
     <v-card-title>Posts:</v-card-title>
     <v-divider ></v-divider>
     <div v-for="post in posts" :key="post.id">
-      <v-card-text class="font-weight-black">{{ post.user.username }} - {{ post.created_at }}</v-card-text>
+      <v-card-text>
+        <b>
+          <router-link :to="'/users/' + post.user.id + '/posts'">{{ post.user.username }}</router-link>
+        </b>
+        - <label class="text--secondary">{{ post.created_at }}</label>
+      </v-card-text>
       <v-card-text>
         {{ post.content }}
         <div class="text-right">
