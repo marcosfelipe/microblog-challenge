@@ -9,3 +9,8 @@ one:
   username: one
   email: one@email.com
   encrypted_password: a1
+two:
+  name: two
+  username: two
+  email: two@email.com
+  encrypted_password: a2

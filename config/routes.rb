@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index], on: :member, module: :users
   end
+  resources :friendships, only: [:index, :create] do
+    delete :destroy, on: :collection
+  end
 end
