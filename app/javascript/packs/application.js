@@ -24,6 +24,7 @@ import App from '../app.vue'
 import Home from '../src/home.vue'
 import Posts from '../src/posts.vue'
 import Users from '../src/users.vue'
+import UsersPosts from '../src/users/posts.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 
@@ -36,13 +37,15 @@ Vue.component('app', App)
 Vue.component('home', Home)
 Vue.component('posts', Posts)
 Vue.component('users', Users)
+Vue.component('users-posts', UsersPosts)
 
 // routes
 const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/posts', component: Posts },
-    { path: '/users', component: Users }
+    { path: '/users', component: Users },
+    { path: '/users/:userId/posts', component: UsersPosts }
   ]
 })
 

@@ -26,7 +26,9 @@
                         sm="5"
                         md="3"
                 >
-                    <strong >{{ user.username }}</strong>
+                    <strong >
+                        <router-link :to="'/users/' + user.id + '/posts'">{{ user.username }}</router-link>
+                    </strong>
                     <span
                             class="grey--text"
                     >
