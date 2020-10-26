@@ -1,1 +1,1 @@
-<app username="<%= current_user.username if user_signed_in? %>"></home>
+<app user="<%= current_user.to_json if user_signed_in? %>"></home>

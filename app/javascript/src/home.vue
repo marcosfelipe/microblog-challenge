@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     userLoggedIn: function(){
-      return window.username
+      return window.user
     }
   },
   created: function(){

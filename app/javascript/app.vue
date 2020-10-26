@@ -17,8 +17,8 @@
         </v-list-item-avatar>
 
         <v-list-item-title>
-          <div v-if="username">
-            {{ username }}
+          <div v-if="currentUser">
+            {{ currentUser.username }}
             <br>
             <a href="/users/sign_out">Sign out</a>
           </div>
@@ -61,13 +61,14 @@
 </template>
 <script>
   export default {
-    props: ['username'],
+    props: ['user'],
     data () {
       return {
+        currentUser: null,
         drawer: true,
         items: [
           { title: 'Home', icon: 'mdi-home-city-outline', url: '/', render: true },
-          { title: 'My Account', icon: 'mdi-account-outline', url: '/posts', render: this.username },
+          { title: 'My Account', icon: 'mdi-account-outline', url: '/posts', render: this.$props.user },
           { title: 'Search People', icon: 'mdi-account-search-outline', url: '/users', render: true },
           //{ title: 'Users', icon: 'mdi-account-group-outline' },
         ],
@@ -75,7 +76,8 @@
       }
     },
     created: function(){
-      window.username = this.$props.username
+      window.user = JSON.parse(this.$props.user)
+      this.currentUser = window.user
     }
   }
 </script>
