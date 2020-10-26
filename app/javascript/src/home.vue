@@ -1,7 +1,7 @@
 <template>
   <div>
     <new-post v-if="userLoggedIn()" />
-    <timeline v-if="userLoggedIn()" />
+    <timeline v-if="userLoggedIn()" :posts="posts" />
   </div>
 </template>
 <script>
@@ -14,10 +14,18 @@ export default {
     timeline,
     newPost
   },
+  data: function(){
+    return {
+      posts: []
+    }
+  },
   methods: {
     userLoggedIn: function(){
       return window.username
     }
+  },
+  created: function(){
+    this.$http.get('/timeline').then(response => this.posts = response.data)
   }
 }
 </script>
