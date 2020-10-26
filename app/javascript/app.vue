@@ -15,6 +15,7 @@
         <v-list-item-title>
           <div v-if="username">
             {{ username }}
+            <br>
             <a href="/users/sign_out">Sign out</a>
           </div>
           <a v-else href="/users/sign_in">Sign in</a>
@@ -35,6 +36,7 @@
           v-for="item in items"
           :key="item.title"
           link
+          v-if="item.render"
         >
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -60,8 +62,8 @@
       return {
         drawer: true,
         items: [
-          { title: 'Home', icon: 'mdi-home-city', url: '/' },
-          { title: 'My Account', icon: 'mdi-account', url: '/posts' },
+          { title: 'Home', icon: 'mdi-home-city', url: '/', render: true },
+          { title: 'My Account', icon: 'mdi-account', url: '/posts', render: this.username },
           //{ title: 'Users', icon: 'mdi-account-group-outline' },
         ],
         mini: true,
