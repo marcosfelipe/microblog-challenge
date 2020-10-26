@@ -48,7 +48,15 @@ document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '[data-behavior="vue"]',
     vuetify: new Vuetify(),
-    data: { remember_me: [] },
+    data: function() {
+      return {
+        remember_me: [],
+        rules: {
+          required: value => !!value || 'Required.',
+          emailMatch: () => (`The email and password you entered don't match`),
+        },
+      }
+    },
     router
   });
 })

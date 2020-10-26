@@ -1,0 +1,39 @@
+<v-container fluid fill-height>
+  <v-layout align-center >
+    <v-flex >
+      <v-card
+        class="mx-auto"
+        max-width="344"
+        outlined
+      >
+        <v-list-item>
+          <v-list-item-title class="headline my-3">
+            Sign up to <%= link_to 'Microblog', root_path %>
+          </v-list-item-title>
+        </v-list-item>
+
+        <% if resource.errors.any? %>
+          <div class="red--text px-3">Invalid form registration!</div>
+        <% end %>
+
+        <v-container>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <v-text-field label="Name" name="user[name]" value="<%= resource.name %>" :rules="[rules.required]"></v-text-field>
+            <v-text-field label="Username" name="user[username]" value="<%= resource.username %>" :rules="[rules.required]"></v-text-field>
+            <v-text-field label="E-mail" name="user[email]" value="<%= resource.email %>" :rules="[rules.required, rules.emailMatch]"></v-text-field>
+            <v-text-field type="password" label="Password" name="user[password]" autocomplete="new-password" :rules="[rules.required]"></v-text-field>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <v-text-field type="password" label="Password Confirmation" name="user[password_confirmation]" autocomplete="new-password" :rules="[rules.required]"></v-text-field>
+
+            <button type="submit" class="v-btn v-btn--block v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">Sign up</span></button>
+        <% end %>
+        </v-container>
+
+
+        <%= render "devise/shared/links" %>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
