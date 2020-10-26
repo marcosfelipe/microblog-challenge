@@ -37,12 +37,17 @@
             <v-col
                     class="text-no-wrap"
             >
-                <div class="text-right">
+                <div class="text-right" v-if="followable(user.id)">
                     <v-btn rounded outlined color="cyan" v-if="notFollowing(user.id)" @click="follow(user.id)">Follow</v-btn>
                     <v-btn rounded outlined color="error" v-else @click="unfollow(user.id)">Unfollow</v-btn>
                 </div>
             </v-col>
         </v-row>
+        <v-card-text>
+            <b>{{ user.following }}</b> Following
+            &nbsp;
+            <b>{{ user.followers }}</b> Followers
+        </v-card-text>
     </v-card>
 </template>
 <script>
@@ -56,6 +61,9 @@
         methods: {
             notFollowing: function(userId) {
                 return !this.friends.includes(userId)
+            },
+            followable: function(userId) {
+                return window.user && window.user.id != userId
             },
             fetchMyFriends: function(){
                 this.$http.get('/friendships').then(response => {
