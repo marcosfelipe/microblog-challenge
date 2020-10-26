@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :friendships, only: [:index, :create] do
     delete :destroy, on: :collection
   end
+  resources :timeline, only: [:index]
 end
