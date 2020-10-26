@@ -22,17 +22,27 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import Home from '../src/home.vue'
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
 Vue.use(Vuetify)
 Vue.use(TurboLinksAdapter)
 Vue.component('app', App)
 Vue.component('home', Home)
 
-// document.addEventListener('DOMContentLoaded', () => {
+// routes
+const router = new VueRouter({
+  routes: [
+    { path: '/', component: Home }
+  ]
+})
+
+// init
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     el: '[data-behavior="vue"]',
     vuetify: new Vuetify(),
-    data: { remember_me: [] }
+    data: { remember_me: [] },
+    router
   });
 })
