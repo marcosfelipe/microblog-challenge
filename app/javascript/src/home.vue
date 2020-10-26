@@ -2,17 +2,20 @@
   <div>
     <new-post v-if="userLoggedIn()" />
     <timeline v-if="userLoggedIn()" :posts="posts" />
+    <users v-else />
   </div>
 </template>
 <script>
 import timeline from './components/timeline.vue'
 import newPost from './components/new_post.vue'
+import Users from './users'
 
 export default {
   name: 'Home',
   components: {
     timeline,
-    newPost
+    newPost,
+    Users
   },
   data: function(){
     return {
