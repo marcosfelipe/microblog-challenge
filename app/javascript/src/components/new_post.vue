@@ -20,7 +20,9 @@ export default {
   methods: {
     post() {
     this.$http.post("/posts", { post: { content: this.content } })
-      .then(response => console.log(response));
+      .then(response => {
+        this.content = null
+      });
     }
   }
 }
