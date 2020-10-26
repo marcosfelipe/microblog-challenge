@@ -13,7 +13,10 @@
         </v-list-item-avatar>
 
         <v-list-item-title>
-          <div v-if="username">{{ username }}</div>
+          <div v-if="username">
+            {{ username }}
+            <a href="/users/sign_out">Sign out</a>
+          </div>
           <a v-else href="/users/sign_in">Sign in</a>
         </v-list-item-title>
 
@@ -63,6 +66,6 @@
         ],
         mini: true,
       }
-    },
+    }
   }
 </script>
