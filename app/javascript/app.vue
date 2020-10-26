@@ -9,7 +9,11 @@
     >
       <v-list-item class="px-2">
         <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
+          <v-avatar color="green">
+            <v-icon dark>
+              mdi-account-circle
+            </v-icon>
+          </v-avatar>
         </v-list-item-avatar>
 
         <v-list-item-title>
@@ -62,8 +66,9 @@
       return {
         drawer: true,
         items: [
-          { title: 'Home', icon: 'mdi-home-city', url: '/', render: true },
-          { title: 'My Account', icon: 'mdi-account', url: '/posts', render: this.username },
+          { title: 'Home', icon: 'mdi-home-city-outline', url: '/', render: true },
+          { title: 'My Account', icon: 'mdi-account-outline', url: '/posts', render: this.username },
+          { title: 'Search People', icon: 'mdi-account-search-outline', url: '/users', render: true },
           //{ title: 'Users', icon: 'mdi-account-group-outline' },
         ],
         mini: true,
