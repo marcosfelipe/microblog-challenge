@@ -76,7 +76,7 @@
       }
     },
     created: function(){
-      window.user = JSON.parse(this.$props.user)
+      window.user = this.$props.user ? JSON.parse(this.$props.user) : null
       this.currentUser = window.user
     }
   }
