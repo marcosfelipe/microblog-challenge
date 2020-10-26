@@ -3,6 +3,8 @@
   elevation="2"
   class="my-3"
   >
+    <v-card-title>Posts:</v-card-title>
+    <v-divider ></v-divider>
     <div v-for="post in posts" :key="post.id">
       <v-card-text class="font-weight-black">{{ post.user.username }} - {{ post.created_at }}</v-card-text>
       <v-card-text>
