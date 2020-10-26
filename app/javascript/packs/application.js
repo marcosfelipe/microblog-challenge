@@ -23,7 +23,10 @@ import 'vuetify/dist/vuetify.min.css'
 import App from '../app.vue'
 import Home from '../src/home.vue'
 import VueRouter from 'vue-router'
+import axios from 'axios'
 
+axios.defaults.headers.post['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
+Vue.prototype.$http = axios
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 Vue.use(TurboLinksAdapter)
