@@ -11,6 +11,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should create a post given empty content' do
+    sign_in users(:one)
+    assert_no_difference 'Post.count' do
+      post posts_path, as: :json, params: { post: { content: '' } }
+    end
+    assert_response :bad_request
+  end
+
   test 'should not create a post as anonymus' do
     assert_no_difference 'Post.count' do
       post posts_path, as: :json, params: { post: { content: 'new post!' } }

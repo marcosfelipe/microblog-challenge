@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if post.save
       render json: post.to_json
     else
-      render json: { errors: post.errors }
+      render json: { errors: post.errors }, status: :bad_request
     end
   end
 
