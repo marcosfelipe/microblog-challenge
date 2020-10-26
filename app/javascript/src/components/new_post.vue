@@ -3,10 +3,25 @@
   elevation="2"
   >
     <v-card-text>
-      <v-text-field placeholder="What's happening?"></v-text-field>
+      <v-text-field placeholder="What's happening?" v-model="content"></v-text-field>
       <div class="text-right">
-        <v-btn color="primary">Post</v-btn>
+        <v-btn color="primary" @click="post">Post</v-btn>
       </div>
     </v-card-text>
   </v-card>
 </template>
+<script>
+export default {
+  data: function() {
+    return {
+      content: null
+    }
+  },
+  methods: {
+    post() {
+    this.$http.post("/posts", { post: { content: this.content } })
+      .then(response => console.log(response));
+    }
+  }
+}
+</script>
