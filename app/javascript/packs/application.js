@@ -30,6 +30,7 @@ import axios from 'axios'
 
 axios.defaults.headers.post['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
 Vue.prototype.$http = axios
+window.username = null
 Vue.use(VueRouter)
 Vue.use(Vuetify)
 Vue.use(TurboLinksAdapter)

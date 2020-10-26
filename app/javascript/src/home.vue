@@ -1,7 +1,7 @@
 <template>
   <div>
-    <new-post />
-    <timeline />
+    <new-post v-if="userLoggedIn()" />
+    <timeline v-if="userLoggedIn()" />
   </div>
 </template>
 <script>
@@ -13,6 +13,11 @@ export default {
   components: {
     timeline,
     newPost
+  },
+  methods: {
+    userLoggedIn: function(){
+      return window.username
+    }
   }
 }
 </script>

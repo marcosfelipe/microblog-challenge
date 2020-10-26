@@ -73,6 +73,9 @@
         ],
         mini: true,
       }
+    },
+    created: function(){
+      window.username = this.$props.username
     }
   }
 </script>
