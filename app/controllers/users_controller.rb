@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: User.find(params[:id]).to_json
+    render json: User.find(params[:id]).to_json(methods: [:following, :followers])
   end
 end

@@ -9,4 +9,11 @@ class User < ApplicationRecord
                           join_table:  :friendships,
                           foreign_key: :user_id,
                           association_foreign_key: :friend_id
+  def following
+    friends.count
+  end
+
+  def followers
+    Friendship.where(friend_id: id).count
+  end
 end
