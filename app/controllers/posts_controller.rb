@@ -10,6 +10,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def index
+    posts = current_user.posts.order(created_at: :desc)
+    render json: posts.to_json(methods: :user)
+  end
+
   private
 
   def post_params

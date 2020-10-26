@@ -25,4 +25,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_response :unauthorized
   end
+
+  test 'should get index' do
+    sign_in users(:one)
+    get posts_path, as: :json
+    assert_response :success
+  end
 end
