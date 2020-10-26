@@ -1,10 +1,5 @@
 <template>
-  <v-card
-  elevation="2"
-  >
-    <new-post />
-    <!-- <posts />-->
-  </v-card>
+  <new-post />
 </template>
 <script>
 import newPost from './components/new_post.vue'
