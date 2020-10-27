@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
   resources :timeline, only: [:index]
+  resources :notifications, only: [:index]
 end
