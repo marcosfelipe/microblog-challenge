@@ -17,14 +17,22 @@
     </v-card>
 </template>
 <script>
+    import EventBus from './event_bus'
+
     export default {
         data: function(){
             return {
                 notifications: []
             }
         },
+        methods: {
+          fetchNotifications: function(){
+              this.$http.get('/notifications').then(response => this.notifications = response.data)
+          }
+        },
         created: function(){
-            this.$http.get('/notifications').then(response => this.notifications = response.data)
+            EventBus.$on('notification', ()=> this.fetchNotifications())
+            this.fetchNotifications()
         }
     }
 </script>

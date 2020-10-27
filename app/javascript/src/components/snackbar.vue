@@ -20,6 +20,7 @@
 </template>
 <script>
     import consumer from "../../channels/consumer";
+    import EventBus from '../event_bus'
 
     export default {
         data: () => ({
@@ -32,6 +33,7 @@
                 received: (data)=> {
                     this.text = data
                     this.snackbar = true
+                    EventBus.$emit('notification')
                 }
             });
         }
