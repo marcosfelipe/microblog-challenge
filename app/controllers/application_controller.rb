@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def after_sign_out_path_for(*)
+    new_user_session_path
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:name, :username, :email, :password)
