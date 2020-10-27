@@ -29,7 +29,7 @@ import Notifications from '../src/notifications.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 
-axios.defaults.headers.post['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
+axios.defaults.headers.common['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
 Vue.prototype.$http = axios
 window.user = null
 Vue.use(VueRouter)
