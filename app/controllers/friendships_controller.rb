@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
   def create
     friend = User.find(params[:friend_id])
     current_user.friends << friend
-    notification = current_user.notifications.create message: "#{current_user.username} followed you."
+    notification = friend.notifications.create message: "#{current_user.username} followed you."
     UserChannel.broadcast_to friend, notification.message
     render json: current_user.friends.to_json
   end

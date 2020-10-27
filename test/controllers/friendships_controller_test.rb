@@ -15,6 +15,7 @@ class FriendshipsControllerTest < ActionDispatch::IntegrationTest
       post friendships_path, params: { friend_id: users(:two).id }, as: :json
     end
     assert_response :success
+    assert_equal 'one followed you.', users(:two).notifications.last.message
   end
 
   test 'should destroy friendship' do
