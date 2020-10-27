@@ -11,6 +11,8 @@
   </v-card>
 </template>
 <script>
+import EventBus from '../event_bus'
+
 export default {
   data: function() {
     return {
@@ -22,6 +24,7 @@ export default {
     this.$http.post("/posts", { post: { content: this.content } })
       .then(response => {
         this.content = null
+        EventBus.$emit('post')
       });
     }
   }
