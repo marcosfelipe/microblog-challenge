@@ -5,7 +5,7 @@
     <v-card-text>
       <v-text-field placeholder="What's happening?" v-model="content"></v-text-field>
       <div class="text-right">
-        <v-btn color="primary" @click="post" :disabled="!content">Post</v-btn>
+        <v-btn color="primary" @click="post" :disabled="!content" rounded>Post</v-btn>
       </div>
     </v-card-text>
   </v-card>
