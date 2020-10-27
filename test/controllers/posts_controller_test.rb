@@ -31,4 +31,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get posts_path, as: :json
     assert_response :success
   end
+
+  test 'should destroy post' do
+    sign_in users(:one)
+    delete post_path(posts(:one)), as: :json
+    assert_response :success
+  end
 end

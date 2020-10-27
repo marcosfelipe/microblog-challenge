@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users
-  resources :posts, only: [:create, :index]
+  resources :posts, only: [:create, :index, :destroy]
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index], on: :member, module: :users
   end
