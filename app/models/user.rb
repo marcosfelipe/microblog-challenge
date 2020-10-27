@@ -9,6 +9,8 @@ class User < ApplicationRecord
                           join_table:  :friendships,
                           foreign_key: :user_id,
                           association_foreign_key: :friend_id
+  has_many :notifications
+
   def following
     friends.count
   end
