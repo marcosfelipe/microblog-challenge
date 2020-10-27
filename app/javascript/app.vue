@@ -55,7 +55,7 @@
         <notifications :item="notificationItem" />
       </v-list>
     </v-navigation-drawer>
-    <v-container class="px-15">
+    <v-container class="pl-15">
       <router-view></router-view>
     </v-container>
     <snackbar />
