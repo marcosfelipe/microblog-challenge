@@ -19,24 +19,12 @@
                     </v-icon>
                 </v-avatar>
             </v-col>
-
-            <v-col
-                    class="hidden-xs-only"
-                    sm="5"
-                    md="3"
-            >
+            <v-col sm="5" md="3">
                 <strong >
                     <router-link :to="'/users/' + user.id + '/posts'">{{ user.username }}</router-link>
                 </strong>
-                <span
-                        class="grey--text"
-                >
-                  &nbsp;
-                </span>
             </v-col>
-            <v-col
-                    class="text-no-wrap"
-            >
+            <v-col class="text-no-wrap">
                 <div class="text-right" v-if="followable(user.id)">
                     <v-btn rounded outlined color="cyan" v-if="notFollowing(user.id)" @click="follow(user.id)">Follow</v-btn>
                     <v-btn rounded outlined color="error" v-else @click="unfollow(user.id)">Unfollow</v-btn>
