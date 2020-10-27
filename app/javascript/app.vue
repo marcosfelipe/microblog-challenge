@@ -52,16 +52,22 @@
             </router-link>
           </v-list-item-content>
         </v-list-item>
+        <notifications :item="notificationItem" />
       </v-list>
     </v-navigation-drawer>
     <v-container class="px-15">
       <router-view></router-view>
     </v-container>
+    <snackbar />
   </v-container>
 </template>
 <script>
+  import Notifications from './src/components/navbar/notifications'
+  import Snackbar from './src/components/snackbar'
+
   export default {
     props: ['user'],
+    components: { Notifications, Snackbar },
     data () {
       return {
         currentUser: null,
@@ -70,8 +76,13 @@
           { title: 'Home', icon: 'mdi-home-city-outline', url: '/', render: true },
           { title: 'My Account', icon: 'mdi-account-outline', url: '/posts', render: this.$props.user },
           { title: 'Search People', icon: 'mdi-account-search-outline', url: '/users', render: true },
-          //{ title: 'Users', icon: 'mdi-account-group-outline' },
         ],
+        notificationItem: {
+          title: 'Notifications',
+          icon: 'mdi-bell',
+          url: '/notifications',
+          render: this.$props.user
+        },
         mini: true,
       }
     },
