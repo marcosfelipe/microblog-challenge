@@ -21,6 +21,12 @@
           >
             <v-icon>mdi-thumb-up</v-icon>
           </v-btn>
+          <v-btn @click="destroyPost(post.id)"
+                 v-if="currentUser(post.user)"
+                  icon
+          >
+            <v-icon>mdi-trash-can-outline</v-icon>
+          </v-btn>
         </div>
       </v-card-text>
       <v-divider ></v-divider>
@@ -28,7 +34,19 @@
   </v-card>
 </template>
 <script>
+import EventBus from '../event_bus'
+
 export default {
-  props: ['posts']
+  props: ['posts'],
+  methods: {
+    destroyPost: function(postId){
+      this.$http.delete('/posts/' + postId).then(response => {
+        EventBus.$emit('destroy_post', postId)
+      })
+    },
+    currentUser(subjectUser){
+      return subjectUser.id == window.user.id
+    }
+  }
 }
 </script>

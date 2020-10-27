@@ -24,7 +24,7 @@ export default {
     this.$http.post("/posts", { post: { content: this.content } })
       .then(response => {
         this.content = null
-        EventBus.$emit('post')
+        EventBus.$emit('post', response.data)
       });
     }
   }

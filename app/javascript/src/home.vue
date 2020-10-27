@@ -35,7 +35,8 @@ export default {
     this.fetchPosts()
   },
   mounted: function(){
-    EventBus.$on('post', ()=> this.fetchPosts())
+    EventBus.$on('post', (post)=> this.posts.unshift(post))
+    EventBus.$on('destroy_post', (postId)=> this.posts = this.posts.filter(post => post.id != postId))
   }
 }
 </script>
