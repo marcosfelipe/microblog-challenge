@@ -17,7 +17,7 @@
         </v-list-item-avatar>
 
         <v-list-item-title>
-          <div v-if="currentUser">
+          <div v-if="currentUser" id="username">
             {{ currentUser.username }}
             <br>
             <a href="/users/sign_out">Sign out</a>

@@ -19,7 +19,7 @@
 
         <v-container>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { ref: :form }) do |f| %>
-            <v-text-field label="E-mail" name="user[email]" value="<%= resource.email %>"></v-text-field>
+            <v-text-field label="E-mail" id="email" name="user[email]" value="<%= resource.email %>"></v-text-field>
 
             <v-text-field type="password" label="Password" name="user[password]" autocomplete="current-password">
             </v-text-field>
@@ -28,7 +28,7 @@
               <v-checkbox label="Remember me" v-model="remember_me" value="remember_me"></v-checkbox>
             <% end %>
 
-            <button type="submit" class="v-btn v-btn--block v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">Log in</span></button>
+            <button type="submit" id="submit" class="v-btn v-btn--block v-btn--contained theme--light v-size--default primary"><span class="v-btn__content">Log in</span></button>
           <% end %>
         </v-container>
 
