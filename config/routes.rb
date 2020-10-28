@@ -2,7 +2,7 @@
 # see https://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
   root 'home#index'
-  devise_for :users
+  devise_for :users, path_names: { edit: '', cancel: '' }
   resources :posts, only: [:create, :index, :destroy]
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index], on: :member, module: :users
