@@ -3,13 +3,15 @@
 Rails.application.routes.draw do
   root 'home#index'
   devise_for :users, path_names: { edit: '', cancel: '' }
-  resources :posts, only: [:create, :index, :destroy]
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index], on: :member, module: :users
+  scope 'api/v1', defaults: { format: :json } do
+    resources :posts, only: [:create, :index, :destroy]
+    resources :users, only: [:index, :show] do
+      resources :posts, only: [:index], on: :member, module: :users
+    end
+    resources :friendships, only: [:index, :create] do
+      delete :destroy, on: :collection
+    end
+    resources :timeline, only: [:index]
+    resources :notifications, only: [:index]
   end
-  resources :friendships, only: [:index, :create] do
-    delete :destroy, on: :collection
-  end
-  resources :timeline, only: [:index]
-  resources :notifications, only: [:index]
 end
