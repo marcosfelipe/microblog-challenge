@@ -4,18 +4,20 @@
     </div>
 </template>
 <script>
-    import user from './components/user'
+    import User from './components/user'
 
     export default {
         name: 'Users',
-        components: {user},
+        components: {User},
         data: function(){
             return {
                 users: []
             }
         },
         created: function(){
-            this.$http.get('/users').then(response => this.users = response.data)
+            this.$http.get('/users').then(response => {
+                if(response.status == 200) this.users = response.data
+            }).catch(()=> this.users = [])
         }
     }
 </script>
