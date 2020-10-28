@@ -35,19 +35,30 @@ Essas são apenas sugestões de funcionalidades, você é livre para criar novas
 #### Specs:
 
 * Ruby version
+  * 2.6.3
 
 * System dependencies
+  * npm
+  * yarn
+  * ruby
 
 * Configuration
+  * rake db:prepare
+  * yarn install
+  * bundle install
 
 * Database creation
+  * sqlite for test/dev
+  * postgres for production
 
 * Database initialization
+  * rake db:create
 
 * How to run the test suite
+  * bin/rake
 
 * Services (job queues, cache servers, search engines, etc.)
+  * none
 
 * Deployment instructions
-
-* ...
+  * git push heroku main
