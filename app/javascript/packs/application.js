@@ -29,7 +29,8 @@ import Notifications from '../src/notifications.vue'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 
-axios.defaults.headers.common['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
+const csrfTokenEl = document.head.querySelector('meta[name="csrf-token"]')
+if(csrfTokenEl) axios.defaults.headers.common['X-CSRF-Token'] = csrfTokenEl.content
 axios.defaults.headers.common['accept'] = 'application/json'
 axios.interceptors.request.use(function(config) {
   config.url = 'api/v1' + config.url;
