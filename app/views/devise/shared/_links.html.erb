@@ -1,0 +1,17 @@
+<v-list dense>
+  <%- if controller_name != 'sessions' %>
+    <v-list-item-content>
+      <v-btn block text>
+        <%= link_to "Log in", new_session_path(resource_name) %>
+      </v-btn>
+    </v-list-item-content>
+  <% end %>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <v-list-item-content>
+      <v-btn block text>
+        <%= link_to "Sign up", new_registration_path(resource_name) %>
+      </v-btn>
+    </v-list-item-content>
+  <% end %>
+</v-list-item>
