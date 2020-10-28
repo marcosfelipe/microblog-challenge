@@ -1,7 +1,9 @@
 <template>
   <div>
-    <new-post v-if="userLoggedIn()" />
-    <timeline v-if="userLoggedIn()" :posts="posts" />
+    <div v-if="userLoggedIn()">
+      <new-post />
+      <timeline :posts="posts" />
+    </div>
     <users v-else />
   </div>
 </template>
