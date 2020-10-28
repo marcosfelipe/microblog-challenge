@@ -30,6 +30,11 @@ import VueRouter from 'vue-router'
 import axios from 'axios'
 
 axios.defaults.headers.common['X-CSRF-Token'] = document.head.querySelector('meta[name="csrf-token"]').content
+axios.defaults.headers.common['accept'] = 'application/json'
+axios.interceptors.request.use(function(config) {
+  config.url = 'api/v1' + config.url;
+  return config;
+})
 Vue.prototype.$http = axios
 window.user = null
 Vue.use(VueRouter)
