@@ -58,7 +58,7 @@ export default {
       })
     },
     currentUser(subjectUser){
-      return subjectUser.id == window.user.id
+      return window.user && subjectUser.id == window.user.id
     }
   }
 }
