@@ -37,4 +37,6 @@ jobs:
       run: bundle exec rails db:prepare
     - name: Run tests
       run: bundle exec rake
+    - name: Run system tests
+      run: bundle exec rails test:system
       
