@@ -8,7 +8,8 @@ one:
   name: one
   username: one
   email: one@email.com
-  encrypted_password: a1
+  # password is 'test123'
+  encrypted_password: $2a$12$Mzgs4ZcWq5SJTeiO.dEL2.fZ.3YXlxRWt.b7yUSQtok.B/bU6QoN.
 two:
   name: two
   username: two
